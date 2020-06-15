@@ -1,0 +1,224 @@
+.container-login {
+    background-color: rgba(15, 15, 15, 1) !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+@media(min-height: 800px){
+    .container-login{
+        height: 100vh;
+    }
+} 
+
+@media(max-height: 800px){
+    .container-login{
+        height: auto
+    }
+} 
+
+#formContent {
+    /* background: rgba(0, 0, 0, 0.97) !important; */
+    padding: 30px;
+    width: 120%;
+    max-width: 300px;
+    position: relative;
+    padding: 0px;
+    text-align: center;
+}
+
+.container-login h4 {
+    padding: 40px 0px;
+}
+
+#myimage {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+.container-login p {
+    color: #db1e46;
+}
+
+.hidden {
+    display: none;
+}
+
+#formFooter {
+    border-top: 1px solid #fff;
+    color: #fff !important;
+    padding: 25px;
+    text-align: center;
+}
+
+.container-login input[type="file"] {
+    display: none;
+}
+
+.container-login input[type="button"],
+.container-login button[type="submit"],
+.container-login input[type="reset"],
+.container-login .user-img {
+    cursor: pointer;
+    background-color: #db1e46;
+    border: none;
+    color: white !important;
+    width: 30%;
+    padding: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 5px 20px 20px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.container-login input[type="button"]:hover,
+.container-login button[type="submit"]:hover,
+.container-login input[type="reset"]:hover {
+    background-color: #900322;
+}
+
+.container-login input[type="button"]:active,
+.container-login button[type="submit"]:active,
+.container-login input[type="reset"]:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+.container-login input::placeholder {
+    color: #fff;
+}
+
+.container-login .field,
+.container-login input[type="text"],
+.container-login input[type="password"] {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 70%;
+    border: 2px solid #333;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.container-login .field:focus,
+.container-login input[type="text"]:focus,
+.container-login input[type="password"]:focus {
+    background-color: #444;
+    border: 2px solid #444;
+}
+
+.container-login .field:placeholder,
+.container-login input[type="text"]:placeholder,
+.container-login input[type="password"]:placeholder {
+    color: #cccccc;
+}
+
+.container-login a {
+    text-decoration: none;
+    color: #db1e46 !important;
+}
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in Animation */
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.4s;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn ease-in-out 0.95;
+    animation-fill-mode: forwards;
+    animation-duration: 0.3s;
+}
+
+.fadeIn.first {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.fadeIn.second {
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+.fadeIn.third {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+.fadeIn.fourth {
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+
+.fadeIn.fifth {
+    -webkit-animation-delay: 1.1s;
+    -moz-animation-delay: 1.1s;
+    animation-delay: 1.1s;
+}
+
+*:focus {
+    outline: none;
+}

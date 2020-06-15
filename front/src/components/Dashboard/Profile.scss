@@ -1,0 +1,247 @@
+.container-profile {
+    /* background-color: rgba(244, 242, 243, 1) !important; */
+    background-color: rgba(236, 236, 236, 1) !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+@media(min-height: 768px){
+    .container-profile{
+        height: 100vh;
+    }
+} 
+
+@media(max-height: 768px){
+    .container-profile{
+        height: 130vh;
+    }
+} 
+
+#content {
+    // background: rgba(0, 0, 0, 0.20) !important;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    padding: 0px;
+    text-align: center;
+}
+
+.users-container ul {
+    width: 100%;
+    padding: 0px 0px;
+    box-sizing: border-box;
+}
+
+.users-container ul li {
+    display: flex;
+    padding: 20px;
+}
+
+.users-container ul li {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(15, 15, 15, 0.9);
+}
+
+.users-container .image-users {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-top: -15px;
+}
+
+.navBar {
+    background-color: rgba(15, 15, 15, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+@media (min-width: 1600px) {
+    .navBar span {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .navBar span {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navBar span {
+        margin-top: 0px;
+    }
+}
+a,
+p,
+label {
+    text-decoration: none;
+    font-size: 24px;
+    color: rgba(15, 15, 15, 0.9);
+}
+
+
+
+#profile-content span:first-child label {
+    text-decoration: none;
+    font-size: 36px !important;
+    color: rgba(15, 15, 15, 0.9);
+    padding: 0px !important;
+    padding-bottom: 100px !important;
+}
+
+#profile-content span {
+    padding: 20px;
+}
+
+#profile-content span label:first-child {
+    padding-right: 20px;
+}
+
+#edit-content {
+    position: fixed;
+    bottom: 35px;
+    left: 0;
+    width: 100%;
+}
+
+#edit-content #edit-button{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: rgba(15, 15, 15, 0.9);
+    border: 0px;
+    font-size: 40px;
+    color: #fff;
+}
+
+#edit-content #edit-button:hover{
+
+    background-color: rgba(50,50,50, 0.9);
+}
+
+.users-button {
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgba(50,50,50, 0.0);
+}
+
+
+
+
+
+.navBar a {
+    color: #fff !important;
+}
+
+.navBar a:hover {
+    color: #db1e46 !important;
+}
+
+.navBar span a span {
+    padding: 10px;
+}
+
+.navBar span a {
+    padding: 0px 30px;
+}
+
+#header-content {
+    padding: 50px;
+    margin-top: 20px;
+}
+
+#header-content span {
+    padding: 0px 30px;
+}
+
+#header-content a:hover {
+    color: #db1e46 !important;
+}
+
+span .a-active {
+    color: #db1e46 !important;
+}
+
+#header-content span a span {
+    padding-left: 5px;
+}
+
+#image-content {
+    border-top: 2px solid #ccc;
+    margin-top: 150px;
+}
+
+#head-content {
+    border-top: 2px solid #ccc;
+    margin: 20px 0px;
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+#profile-content {
+    margin-top: 30px;
+}
+
+#image-profile {
+    margin-top: -150px;
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    // -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    border: 2px solid #888;
+    box-shadow: 0 5px 40px 0px rgba(100, 100, 100, 0.5);
+}
+
+#first-li {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    opacity: 1;
+    -webkit-animation: fadeOut ease-out 1;
+    -moz-animation: fadeOut ease-out 1;
+    animation: fadeOut ease-out 1;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+}

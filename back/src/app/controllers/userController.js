@@ -15,7 +15,7 @@ const serverPort = require('../config/serverPort');
 routes.get('/', async (request, response) => {
     try {
         const users = await User.find();
-        response.json(users);
+        response.status(200).send({ users })
     } catch {
         response.status(400).send({ "error": "Query failed" });
     }
@@ -37,16 +37,20 @@ routes.get('/:id', async (request, response) => {
 /**
  * Cadastrar novo usuário
  */
-routes.post('/add', multer(multerConfig).single("file"), async (request, response) => {
+routes.post('/add', async (request, response) => {
     try {
         if (await User.findOne({ email: request.body.email }))
             return response.status(400).send({ "error": "User already exists" });
-        request.body.img = {
+        if (request.file) request.body.img = {
             name: request.file.originalname,
             size: request.file.size,
             key: request.file.filename,
             img_path: `http://localhost:${serverPort}/users/uploads/${request.file.filename}`
         }
+        request.body.role_access = 1
+
+        const hash = await bcrypt.hash(request.body.password, 10);
+        request.body.password = hash;
 
         const user = await User.create(request.body);
 
@@ -54,10 +58,50 @@ routes.post('/add', multer(multerConfig).single("file"), async (request, respons
 
         response.status(200).send({
             user,
-            jwtToken: generateToken({id: user._id}),
+            jwtToken: generateToken({ id: user._id }),
         });
     } catch (error) {
         return response.status(400).send({ "error": "Somenthing went wrong" });
+    }
+});
+
+/**
+ * Insere a imagem no usuário posteriormente
+ */
+routes.patch('/image/:id', multer(multerConfig).single("file"), async (request, response) => {
+
+    try {
+        await User.findById(request.params.id, (req, res) => {
+            let user = res;
+            if (request.file) {
+                user.img = {
+                    name: request.file.originalname,
+                    size: request.file.size,
+                    key: request.file.filename,
+                    img_path: `http://localhost:${serverPort}/users/uploads/${request.file.filename}`
+                }
+
+                try {
+                    console.log(user);
+                    user.save((err, prod) => {
+                        if (err) {
+                            console.log(err)
+                            response.status(500).send(err);
+
+                        }
+                        else {
+                            response.status(200).json(prod);
+                        }
+                    });
+                } catch (error) {
+                    response.status(400).send({ "error": "User not found" });
+
+                }
+            }
+        });
+
+    } catch {
+        response.status(400).send({ "error": "User not found" });
     }
 });
 
@@ -71,27 +115,51 @@ routes.use('/uploads', express.static(path.resolve('src', 'app', 'tmp', 'uploads
  * Editar usuário
  */
 routes.patch('/edit/:id', async (request, response) => {
-    const { name, cpf, email, img, password } = request.body;
-    await User.findById(request.params.id, (err, prod) => {
-        if (err)
-            response.status(500).send(err);
-        else if (!prod)
-            response.status(404).send({ "error": "User not found" });
-        else {
-            prod.name = name;
-            prod.cpf = cpf;
-            prod.email = email;
-            prod.img = img;
-            prod.password = password;
-            prod.save((err, prod) => {
-                if (err)
-                    response.status(500).send(err);
-                else
-                    response.status(200).json(prod);
-            });
-            response.status(200).json(prod);
-        }
-    });
+    const { name, cpf, email, password, newPassword, roleAccess } = request.body;
+    console.warn(request.body);
+
+    try {
+        await User.findById(request.params.id, async (err, prod) => {
+            if (err)
+                response.status(500).send(err);
+            else if (!prod)
+                response.status(404).send({ "error": "User not found" });
+            else {
+                console.log(prod);
+                if (name) prod.name = name;
+                if (cpf) prod.cpf = cpf;
+                if (email) prod.email = email;
+                console.log(password)
+                if (password && newPassword) {
+                    if (!(await bcrypt.compare(password, prod.password))) {
+                        console.log("Senha tá errada")
+                        return response.status(400).json({ "Error": "Wrong password" });
+                    }
+                    else {
+                        console.log("Senha tá certa")
+                        const hash = await bcrypt.hash(newPassword, 10);
+                        prod.password = hash;
+                    }
+                }
+                if (roleAccess) prod['role_access'] = roleAccess;
+                try {
+                    console.warn(prod);
+                    await prod.save((err, prod) => {
+                        if (err)
+                            response.status(500).send(err);
+                        else
+                            response.status(200).json(prod);
+                    });
+                } catch (error) {
+                    response.status(500).send(error);
+                }
+            }
+        }).select('+password');
+    } catch (error) {
+        response.status(500).send(error);
+    }
+
+
 });
 
 /**
@@ -123,7 +191,7 @@ routes.post('/autenticate', async (request, response) => {
 
     const user = await User.findOne({ email }).select('+password');
     if (!user)
-        return response.status(400).send({ "Error": "User not found" });
+        return response.status(400).json({ "Error": "User not found" });
 
     if (!(await bcrypt.compare(password, user.password)))
         return response.status(400).send({ "Error": "Wrong password" });
@@ -133,7 +201,7 @@ routes.post('/autenticate', async (request, response) => {
 
     response.status(200).send({
         user,
-        jwtToken: generateToken({id: user._id}),
+        jwtToken: generateToken({ id: user._id }),
     });
 });
 

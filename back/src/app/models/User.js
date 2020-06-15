@@ -9,7 +9,7 @@ var UserSchema = new Schema({
     },
     cpf: {
         type: String,
-        require: true
+        required: false
     },
     email: {
         type: String,
@@ -26,7 +26,8 @@ var UserSchema = new Schema({
         name: String,
         size: Number,
         key: String,
-        img_path: String
+        img_path: String,
+        required: false
     },
     role_access: {
         type: String,
@@ -34,11 +35,11 @@ var UserSchema = new Schema({
     }
 });
 
-UserSchema.pre('save', async function(next) {
-    const hash = await bcrypt.hash(this.password, 10);
-    this.password = hash;
+// UserSchema.pre('save', async function(next) {
+//     const hash = await bcrypt.hash(this.password, 10);
+//     this.password = hash;
 
-    next();
-})
+//     next();
+// })
 
 module.exports = mongoose.model("User", UserSchema);
