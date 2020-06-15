@@ -14,18 +14,25 @@ const Modal = ({ handleClose, show, data, role, children }) => {
     const [name] = useState(data.name);
     const [cpf] = useState(data.cpf);
     const [email] = useState(data.email);
-    const [roleAccess] = useState(role? data['role_access']: false);
+    const [roleAccess] = useState(role ? data['role_access'] : false);
     const [error, setError] = useState(false);
 
     const { password, newPassword } = useState();
 
     var img = (data.img) ? data.img['img_path'] : perfil;
-
+    var imgTrue = (data.img) ? true : false;
 
 
     const handleSubmit = async (values) => {
         console.log(values)
         await axios.patch(`${baseUrl}/users/edit/${data['_id']}`, values)
+            .then(async resp => {
+                if (data) {
+                    if (imgTrue) {
+                        await axios.patch(`${baseUrl}/users/image/${data['_id']}`, img);
+                    }
+                }
+            })
             .then(() => {
                 history.go();
             })
@@ -85,8 +92,8 @@ const Modal = ({ handleClose, show, data, role, children }) => {
                         </div>
                         <div className="">
 
-                            <label htmlFor="button-img" className="user-img">Selecionar uma foto</label>
-                            <input type='file' onChange={(o) => handleChange(o)} encType="multipart/form-data" />
+                            <label htmlFor="button-edit-img" className="user-img">Selecionar uma foto</label>
+                            <input type='file' id="button-edit-img" onChange={(o) => handleChange(o)} encType="multipart/form-data" />
 
                         </div>
                         {children}
