@@ -1,0 +1,4 @@
+_id,name,password,email,cpf,role_access,__v
+5ee63980f363a5284c81efad,Gabriel Felipe Sem nada,$2a$10$20xb2.xrWCNkpI9byQOmeu/p6xImqdXErEiiTJC7sEIXn2FsmKFOe,gabriel@semfoto.com,123.123.123-12,999,0
+5ee63a4cf363a5284c81efaf,Gabriel Felipe com Foto 5,$2a$10$GfWpkKP8kocGJyeszOL/QOFVqM0Z3f5qEt2GSdqQ7lDx4sPxnCZ5W,gabriel1@comfoto.com,321.321.321-11,999,0
+5ee76d2556c360292c882d80,Natália Simão Haro hahaa,$2a$10$pzTG9hCr/8kFbvn8emZvgev5FaoIugr8trp5vXeBrE3CCqujHABW6,natalia@natalia.com,111.111.111-11,true,0
