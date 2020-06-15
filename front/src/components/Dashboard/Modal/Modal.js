@@ -33,25 +33,7 @@ const Modal = ({ handleClose, show, data, role, children }) => {
                 console.log("Deu erro");
                 setError(true);
             });
-        //     .then(async resp => {
-        //         console.log(resp)
-        //         const data = resp;
-        //         if (data) {
-        //             if (dataImg) {
-        //                 let id = data.data.user['_id'];
-        //                 await axios.patch(`${baseUrl}/users/image/${id}`, dataImg)
-        //                     .then(async res => {
-        //                         await console.log(res)
-        //                     });
-        //             }
-        //             sessionStorage.setItem('app-token', data.data['jwtToken']);
-        //             sessionStorage.setItem('user_id', data.data.user['_id']);
-        //             sessionStorage.setItem('role_access', data.data.user['role_access']);
-        //             history.push('/');
-        //         }
-        //     })
-        //     .catch((err) => {
-        //     });
+
     }
 
     const validations = yup.object().shape({
@@ -219,7 +201,7 @@ const Modal = ({ handleClose, show, data, role, children }) => {
                 </Formik>
                 <button
                     className="btn-cancel "
-                    onClick={handleClose}>close
+                    onClick={handleClose}> Cancelar
                 </button>
             </section>
         </div>

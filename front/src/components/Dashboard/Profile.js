@@ -52,7 +52,7 @@ const Profile = () => {
                                 </Link>
                             </span>
 
-                            {!(role === 999) ? (
+                            {!!(role === '999') ? (
                                 <span>
                                     <Link to="/users">
                                         <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
@@ -61,7 +61,6 @@ const Profile = () => {
                                 </span>)
                                 : ''}
                         </span>
-                        {/* <div className="col-lg-4"></div> */}
                         <span className="col-lg-2">
                             <Link to="/login">
                                 <FontAwesomeIcon icon={faSignOutAlt}></FontAwesomeIcon>

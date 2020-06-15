@@ -1,31 +1,17 @@
 [{
   "_id": {
-    "$oid": "5ee63980f363a5284c81efad"
+    "$oid": "5ee7c716bb981244c4444f78"
   },
-  "name": "Gabriel Felipe Sem nada",
-  "password": "$2a$10$20xb2.xrWCNkpI9byQOmeu/p6xImqdXErEiiTJC7sEIXn2FsmKFOe",
-  "email": "gabriel@semfoto.com",
-  "cpf": "123.123.123-12",
+  "name": "Gabriel Felipe Nunes Ferreira",
+  "password": "$2a$10$YT5mW2pWwfxMsB9D5grIt.PLY/E7g9pJx0ScgtR/MQ8XSjtoCzE8W",
+  "email": "gabriel@teste.com",
+  "cpf": "123.123.123-99",
   "role_access": "999",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "5ee63a4cf363a5284c81efaf"
-  },
-  "name": "Gabriel Felipe com Foto 5",
-  "password": "$2a$10$GfWpkKP8kocGJyeszOL/QOFVqM0Z3f5qEt2GSdqQ7lDx4sPxnCZ5W",
-  "email": "gabriel1@comfoto.com",
-  "cpf": "321.321.321-11",
-  "role_access": "999",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "5ee76d2556c360292c882d80"
-  },
-  "name": "Natália Simão Haro hahaa",
-  "password": "$2a$10$pzTG9hCr/8kFbvn8emZvgev5FaoIugr8trp5vXeBrE3CCqujHABW6",
-  "email": "natalia@natalia.com",
-  "cpf": "111.111.111-11",
-  "role_access": "1",
-  "__v": 0
+  "__v": 0,
+  "img": {
+    "name": "eu.jpg",
+    "size": 177913,
+    "key": "e538c6bb10c1334173948e340407abec~eu.jpg",
+    "img_path": "http://localhost:5000/users/uploads/e538c6bb10c1334173948e340407abec~eu.jpg"
+  }
 }]
