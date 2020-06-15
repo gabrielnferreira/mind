@@ -42,7 +42,7 @@ Selecionar o arquivo mongodata.json.
 Na pasta /front:
 
 `npm install` <br>
-`npm start` <br>
+`npm start` <br><br>
 Na porta https://localhost:3000/
 
 ###Projeto NodeJS
