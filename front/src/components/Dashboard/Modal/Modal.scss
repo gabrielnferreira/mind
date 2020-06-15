@@ -12,10 +12,32 @@
     position: fixed;
     background: white;
     width: 60%;
+    top: 51%;
+    left: 50%;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+}
+
+.modal-delete-main {
+    background-color: rgba(15, 15, 15, 0.95) !important;
+    position: fixed;
+    background: white;
+    width: 30%;
     top: 50%;
     left: 50%;
-    padding: 20px;
+    padding: 50px;
     transform: translate(-50%, -50%);
+}
+
+.modal-delete-main div {
+    padding: 30px;
+}
+.modal-delete-main label {
+    color: #fff;
+}
+.modal-main label {
+    color: #fff;
+    font-size: 16px !important;
 }
 
 .display-block {
@@ -40,14 +62,15 @@
 
 .modal-main input[type="button"],
 .modal-main button[type="submit"],
-.modal-main input[type="reset"],
+.modal-delete-main input[type="button"],
+.modal-delete-main button[type="submit"],
 .modal-main .user-img {
     cursor: pointer;
     background-color: #db1e46;
     border: none;
     color: white !important;
-    width: 30%;
-    padding: 10px 0px;
+    width: 20%;
+    padding: 5px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -65,8 +88,8 @@
     cursor: pointer;
     border: none;
     color: black !important;
-    width: 30%;
-    padding: 10px 0px;
+    width: 20%;
+    padding: 5px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -103,13 +126,13 @@
     background-color: #333;
     border: none;
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    width: 70%;
+    width: 50%;
     border: 2px solid #333;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;

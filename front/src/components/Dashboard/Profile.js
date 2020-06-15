@@ -120,7 +120,7 @@ const Profile = () => {
 
 
                                     {/* MODAL */}
-                                    <Modal show={modal} data={data} handleClose={hideModal}>
+                                    <Modal show={modal} data={data} handleClose={hideModal} role={false}>
 
                                     </Modal>
                                     <button id="edit-button" type="button" onClick={showModal}>

@@ -5,14 +5,16 @@ import baseUrl from '../../../api';
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import perfil from '../../../assets/user.png';
 import './Modal.scss'
+import '../../../assets/custom.css';
 import { history } from '../../../history';
 
 
-const Modal = ({ handleClose, show, data, children}) => {
+const Modal = ({ handleClose, show, data, role, children }) => {
 
     const [name] = useState(data.name);
     const [cpf] = useState(data.cpf);
     const [email] = useState(data.email);
+    const [roleAccess] = useState(role? data['role_access']: false);
     const [error, setError] = useState(false);
 
     const { password, newPassword } = useState();
@@ -20,7 +22,6 @@ const Modal = ({ handleClose, show, data, children}) => {
     var img = (data.img) ? data.img['img_path'] : perfil;
 
 
-    const handleFechar = (handleClose)
 
     const handleSubmit = async (values) => {
         console.log(values)
@@ -82,7 +83,8 @@ const Modal = ({ handleClose, show, data, children}) => {
     const initialValues = {
         name,
         cpf,
-        email
+        email,
+        roleAccess
     };
 
     return (
@@ -102,14 +104,14 @@ const Modal = ({ handleClose, show, data, children}) => {
                         <div className="">
 
                             <label htmlFor="button-img" className="user-img">Selecionar uma foto</label>
-                            <input type='file' id="button-img" onChange={(o) => handleChange(o)} encType="multipart/form-data" />
+                            <input type='file' onChange={(o) => handleChange(o)} encType="multipart/form-data" />
 
                         </div>
                         {children}
+                        <label className="col-lg-12">Nome: </label>
                         <Field
                             type="text"
                             name="name"
-                            id="name"
                             className="Form-Field field "
                             placeholder="Nome completo"
                         />
@@ -121,6 +123,7 @@ const Modal = ({ handleClose, show, data, children}) => {
                             />
 
                         </p>
+                        <label className="col-lg-12">Senha: </label>
 
                         <Field
                             type="password"
@@ -138,6 +141,7 @@ const Modal = ({ handleClose, show, data, children}) => {
                             />
                         </p>
 
+                        <label className="col-lg-12">Nova senha: </label>
                         <Field
                             type="password"
                             name="newPassword"
@@ -153,7 +157,7 @@ const Modal = ({ handleClose, show, data, children}) => {
                                 className="Form-Error "
                             />
                         </p>
-
+                        <label className="col-lg-12">E-mail:</label>
                         <Field
                             type="email"
                             name="email"
@@ -168,7 +172,7 @@ const Modal = ({ handleClose, show, data, children}) => {
                             />
 
                         </p>
-
+                        <label className="col-lg-12">CPF:</label>
                         <Field
                             type="text"
                             name="cpf"
@@ -182,6 +186,26 @@ const Modal = ({ handleClose, show, data, children}) => {
                                 className="Form-Error "
                             />
                         </p>
+                        {
+                            (role) ? (
+                                <div>
+                                    <label className="col-lg-12">Acesso:</label>
+                                    <Field
+                                        type="text"
+                                        name="roleAccess"
+                                        className="Form-Field field "
+                                        placeholder="Acesso"
+                                    />
+                                    <p>
+                                        <ErrorMessage
+                                            component="span"
+                                            name="cpf"
+                                            className="Form-Error "
+                                        />
+                                    </p>
+                                </div>
+                            ) : ''
+                        }
 
 
                         <button
@@ -195,7 +219,8 @@ const Modal = ({ handleClose, show, data, children}) => {
                 </Formik>
                 <button
                     className="btn-cancel "
-                    onClick={handleFechar}>close</button>
+                    onClick={handleClose}>close
+                </button>
             </section>
         </div>
     );

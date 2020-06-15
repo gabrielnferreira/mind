@@ -166,6 +166,7 @@ routes.patch('/edit/:id', async (request, response) => {
  * Deleta um usuário
  */
 routes.delete('/delete/:id', async (request, response) => {
+    console.log({ _id: request.params.id });
     await User.deleteOne({ _id: request.params.id },
         (err) => {
             if (err)

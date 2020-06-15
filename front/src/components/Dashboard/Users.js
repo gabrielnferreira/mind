@@ -10,14 +10,16 @@ import '../../assets/custom.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUsers, faAddressCard, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 
-import Modal from './Modal/Modal'
+import Modal from './Modal/Modal';
+import ModalDelete from './Modal/ModalDelete';
 
 
 const Users = () => {
 
     const [data, setData] = useState({ users: [] });
     const [modal, setModal] = useState(false);
-
+    const [modalDelete, setModalDelete] = useState(false);
+    const [user, setUser] = useState({});
 
     // useEffect(() => {
     //     axios.get(`${baseUrl}/users/${sessionStorage.getItem('user_id')}`)
@@ -43,12 +45,22 @@ const Users = () => {
     }, []);
 
 
-    const showModal = () => {
+    const showModal = (item) => {
+        setUser(item);
         setModal(true);
     }
 
     const hideModal = () => {
         setModal(false);
+    }
+
+    const showModalDelete = (item) => {
+        setUser(item);
+        setModalDelete(true);
+    }
+
+    const hideModalDelete = () => {
+        setModalDelete(false);
     }
 
 
@@ -109,24 +121,35 @@ const Users = () => {
                                         }
                                     </span>
 
-                                    {/* MODAL */}
-                                    <Modal show={modal} data={item} handleClose={hideModal}>
-                                        {index}
-                                    </Modal>
+
                                     <span className="edit col-lg-1">
-                                        <button className="users-button" type="button" onClick={showModal}>
+                                        <button className="users-button" type="button" onClick={() => showModal(item)}>
                                             <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
                                         </button>
                                     </span>
                                     <span className="delete col-lg-1">
-                                        <button className="users-button">
+                                        <button className="users-button" type="button" onClick={() => showModalDelete(item)}>
                                             <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
                                         </button>
                                     </span>
                                 </li>
                             ))}
-
                         </ul>
+                        {/* MODAL */}
+                        {
+                            (modal) ? (
+                                <Modal show={modal} data={user} handleClose={hideModal} role={true}>
+                                </Modal>
+                            ): ''
+                        }
+                        
+                        {/* MODAL */}
+                        {
+                            (modalDelete) ? (
+                                <ModalDelete show={modalDelete} data={user} handleClose={hideModalDelete}>
+                                </ModalDelete>
+                            ): ''
+                        }
                     </div>
                 </div>
             </div>
