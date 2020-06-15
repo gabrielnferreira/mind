@@ -1,17 +1,33 @@
 [{
   "_id": {
-    "$oid": "5ee7c716bb981244c4444f78"
+    "$oid": "5ee7dd195aac537e78d0a578"
   },
-  "name": "Gabriel Felipe Nunes Ferreira",
-  "password": "$2a$10$YT5mW2pWwfxMsB9D5grIt.PLY/E7g9pJx0ScgtR/MQ8XSjtoCzE8W",
+  "name": "Gabriel Felipe Nunes",
+  "password": "$2a$10$YD7ChXcAS1BRN3S92VmXDu1qcuH6eigBf7v377yEKPhpCxNilKdum",
   "email": "gabriel@teste.com",
-  "cpf": "123.123.123-99",
+  "cpf": "321.123.123-12",
   "role_access": "999",
   "__v": 0,
   "img": {
     "name": "eu.jpg",
     "size": 177913,
-    "key": "e538c6bb10c1334173948e340407abec~eu.jpg",
-    "img_path": "http://localhost:5000/users/uploads/e538c6bb10c1334173948e340407abec~eu.jpg"
+    "key": "71f4aa02bc7a4f27c2a4d03f146c1b43~eu.jpg",
+    "img_path": "http://localhost:5000/users/uploads/71f4aa02bc7a4f27c2a4d03f146c1b43~eu.jpg"
+  }
+},{
+  "_id": {
+    "$oid": "5ee7e2925aac537e78d0a57a"
+  },
+  "name": "Natalia teste",
+  "password": "$2a$10$5wkAz4eMb68JZCYBfbD7.eweUztXt14gc/SJQdTXY202OBSutizT2",
+  "email": "iojfasi@acsjod.com",
+  "cpf": "asjidoasjiojdsaisd",
+  "role_access": "999",
+  "__v": 0,
+  "img": {
+    "name": "balloon.png",
+    "size": 594771,
+    "key": "715711481668af2eb5140b06f5272e50~balloon.png",
+    "img_path": "http://localhost:5000/users/uploads/715711481668af2eb5140b06f5272e50~balloon.png"
   }
 }]

@@ -35,25 +35,18 @@ const Register = () => {
 
         dataImg = new FormData();
         dataImg.append('file', file);
-        
-        // axios.post(`${baseUrl}/users/image`, data)
-        //     .then(resp => {
-        //         console.log("Deu Certo");
-        //         console.log(resp)
-        //     })
+   
     };
 
     const handleSubmit = async values => {
         await axios.post(`${baseUrl}/users/add`, values)
             .then(async resp => {
-                console.log(resp)
                 const data = resp;
                 if (data) {
                     if(dataImg){
                         let id = data.data.user['_id']; 
                         await axios.patch(`${baseUrl}/users/image/${id}`, dataImg)
                             .then( async res => {
-                                await console.log(res)
                             });
                     }
                     sessionStorage.setItem('app-token', data.data['jwtToken']);

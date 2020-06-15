@@ -21,17 +21,6 @@ const Users = () => {
     const [modalDelete, setModalDelete] = useState(false);
     const [user, setUser] = useState({});
 
-    // useEffect(() => {
-    //     axios.get(`${baseUrl}/users/${sessionStorage.getItem('user_id')}`)
-    //         .then(resp => {
-    //             user = resp;
-    //             console.log(user)
-    //         });
-    //     axios.get(`${baseUrl}/users/`)
-    //         .then(async resp => {
-    //             console.log(resp);
-    //         });
-    // });
 
     useEffect(() => {
         if (!!(sessionStorage.getItem('role_access') === '1')) {

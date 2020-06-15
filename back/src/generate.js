@@ -26,5 +26,4 @@ async function generateUsers() {
 
 generateUsers().then(()=> {
     mongoose.disconnect();
-    console.log("OK");
 })

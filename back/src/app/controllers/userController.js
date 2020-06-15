@@ -82,10 +82,8 @@ routes.patch('/image/:id', multer(multerConfig).single("file"), async (request, 
                 }
 
                 try {
-                    console.log(user);
                     user.save((err, prod) => {
                         if (err) {
-                            console.log(err)
                             response.status(500).send(err);
 
                         }
@@ -116,7 +114,6 @@ routes.use('/uploads', express.static(path.resolve('src', 'app', 'tmp', 'uploads
  */
 routes.patch('/edit/:id', async (request, response) => {
     const { name, cpf, email, password, newPassword, roleAccess } = request.body;
-    console.warn(request.body);
 
     try {
         await User.findById(request.params.id, async (err, prod) => {
@@ -125,25 +122,20 @@ routes.patch('/edit/:id', async (request, response) => {
             else if (!prod)
                 response.status(404).send({ "error": "User not found" });
             else {
-                console.log(prod);
                 if (name) prod.name = name;
                 if (cpf) prod.cpf = cpf;
                 if (email) prod.email = email;
-                console.log(password)
                 if (password && newPassword) {
                     if (!(await bcrypt.compare(password, prod.password))) {
-                        console.log("Senha tá errada")
                         return response.status(400).json({ "Error": "Wrong password" });
                     }
                     else {
-                        console.log("Senha tá certa")
                         const hash = await bcrypt.hash(newPassword, 10);
                         prod.password = hash;
                     }
                 }
                 if (roleAccess) prod['role_access'] = roleAccess;
                 try {
-                    console.warn(prod);
                     await prod.save((err, prod) => {
                         if (err)
                             response.status(500).send(err);
@@ -166,7 +158,6 @@ routes.patch('/edit/:id', async (request, response) => {
  * Deleta um usuário
  */
 routes.delete('/delete/:id', async (request, response) => {
-    console.log({ _id: request.params.id });
     await User.deleteOne({ _id: request.params.id },
         (err) => {
             if (err)

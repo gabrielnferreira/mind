@@ -14,7 +14,6 @@ const ModalDelete = ({ handleClose, show, data, children }) => {
                 history.go();
             })
             .catch((err) => {
-                console.log("Deu erro");
             });
     }
 
