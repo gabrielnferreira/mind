@@ -1,10 +1,5 @@
 # mind-proccess
-Projeto desenvolvido em React e NodeJs para o processo de seleção da Mind Consulting
-
-
-## Descrição:
-O projeto é uma iniciativa para o processo de seleção da Mind Consulting. Foi desenvolvido uma plataforma de usuário, no qual o mesmo pode se cadastrar, logar, e editar seus dados.<br>
-Um administrador poderá editar dados, e também deletar outros usuários. <br>
+Projeto desenvolvido em React e NodeJs
 
 ### `Back-end`
 O Back-end foi desenvolvido em NodeJs. Foi utilizado o Express para criação do server e das rotas, utilizando os conceitos de RestAPI. <br>
