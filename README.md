@@ -1,4 +1,4 @@
-# mind-proccess
+# mind
 Projeto desenvolvido em React e NodeJs
 
 ### `Back-end`
